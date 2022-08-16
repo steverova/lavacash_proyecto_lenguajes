@@ -1,0 +1,67 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar"></div>
+
+<script src="../js/vistas/validationForm.js"></script>
+<script src="../js/vistas/form_register.js"></script>
+<link rel="stylesheet" href="../css/background.css">
+<link rel="stylesheet" href="../css/footer.css">
+<script src="../js/vistas/email_validation_register.js"></script>
+
+
+<style>
+    .card {
+        border: 1px solid rgba(221, 221, 221, 0);
+    }
+
+    .card_img {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        border: 1px solid rgb(114, 114, 114);
+        border-width: 5px;
+    }
+
+    .card_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="container-fluid bootstrap snippet mx-auto">
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-6">
+            <div class="card m-5">
+                <h5 class="card-header">Crear Cuenta</h5>
+                <div class="card-body">
+                    <form autocomplete="off" th:action="@{/cuenta/guardar}" th:object="${user}" method="post"
+                        enctype="multipart/form-data">
+                        <div id="formpart1" th:include="user/autentication/form_part1"></div>
+                        <div id="formpart2" style="display: none;" th:include="user/autentication/form_part2"></div>
+                    </form>
+
+                    <div>
+                        <p>Ya tiene una cuenta? <a th:href="@{/cuenta/iniciar_sesion}">
+                                Inicie sesión</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6 bg-light">
+            <img th:src="@{../images/icon2.png}" style="height: 70%; weight:70%" salt="" />
+            <div class="text-center">
+                <a class="btn btn-default bg-primary text-white" th:href="@{/pagina/comentarios}">Opiniones
+                    de nuestros clientes <i class="fa-solid fa-message"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div th:include="page/footerv2"></div>

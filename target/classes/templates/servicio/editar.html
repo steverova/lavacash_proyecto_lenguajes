@@ -1,0 +1,144 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar"></div>
+
+<!-- MODAL INICIA -->
+<div id="modalEscogerServicios" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Servicios Disponibles</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Escoja los servicios que desea agregar</p>
+                <table class="table table-sm" 
+                       id="tableModal">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Agregar</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="agregarServicios()">Agregar Servicios</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL FINALIZA -->
+
+<div class="p-3">
+    <h1>Editando el Servicio <b th:text="${servicio.nombre}"></b></h1>
+</div>
+<div class="mx-auto container border border-dark rounded p-3 m-3">
+    <form >
+        <input type="text" th:value="${servicio.id}" hidden="true" 
+               id="inputId"/>
+        <div class="form-group row">
+            <label for="selectTipo" class="col-sm-2 col-form-label">Tipo de Servicio</label>
+            <div class="col-sm-10" >
+                <input type="text" class="form-control" id="selectTipo" readonly="true" 
+                       th:if="${servicio.tipo} eq 1" value="Regular" th:tipo="${servicio.tipo}">
+                <input type="text" class="form-control" id="selectTipo" readonly="true" 
+                       th:if="${servicio.tipo} eq 2" value="Promoción" th:tipo="${servicio.tipo}">
+                <input type="text" class="form-control" id="selectTipo" readonly="true" 
+                       th:if="${servicio.tipo} eq 3" value="Tiempo Limitado" th:tipo="${servicio.tipo}">
+                <input type="text" class="form-control" id="selectTipo" readonly="true" 
+                       th:if="${servicio.tipo} eq 4" value="Temporada" th:tipo="${servicio.tipo}">
+                <input type="text" class="form-control" id="selectTipo" readonly="true" 
+                       th:if="${servicio.tipo} eq 5" value="A la Medida" th:tipo="${servicio.tipo}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputNombre" class="col-sm-2 col-form-label">Nombre del Servicio</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputNombre" readonly="true"
+                       placeholder="Nombre" th:value="${servicio.nombre}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputDescripcion" class="col-sm-2 col-form-label">
+                Descripción</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="inputDescripcion" 
+                          placeholder="Descipción" rows="3" 
+                          th:text="${servicio.descripcion}"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputPrecio" class="col-sm-2 col-form-label">Precio del Servicio</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPrecio" 
+                       placeholder="0" th:value="${servicio.precio}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputDuracion" class="col-sm-2 col-form-label">Duración del Servicio</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputDuracion" 
+                       placeholder="0" th:value="${servicio.tiempo}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Servicios Incluidos</label>
+            <div class="col-sm-10">
+                <!-- AQUI DEBO LLENAR LA TABLA -->
+                <table class="table table-sm" 
+                       id="tableBody">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Administrar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- FIN DE TABLA -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <button type="button" 
+                        class="btn btn-secondary btn-sm btn-block" 
+                        onclick="escogerServicios()">
+                    Agregar Servicios
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" 
+                        class="btn btn-primary" 
+                        onclick="guardarServicio()">
+                    Guardar Cambios
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+<!-- SCRIPTS NECESARIOS PARA USAR SWEET ALERT -->
+<script type="text/javascript" th:src="@{//cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+<script type="text/javascript" th:src="@{/js/sweet_alert/alertas.js}"></script>
+<!-- SCRIPTS NECESARIOS PARA USAR SWEET ALERT -->
+<script type="text/javascript" th:src="@{/js/servicio/servicio_editar.js}"></script>
+
+<div th:include="page/footer"></div>

@@ -1,0 +1,28 @@
+<div class="collapse navbar-collapse justify-content-end">
+
+    <div class="justify-content-end" id="navbar-icons-links">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/cuenta/cliente}"><i class="fa-solid fa-house-user"></i></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/citas/citas/agregarCita}"><i class="fa-solid fa-calendar-plus"></i></a>
+            </li>
+
+        </ul>
+    </div>
+
+    <ul class="navbar-nav mr-5 justify-content-center">
+        <span class="my-auto" capitalize></span>
+        <img class="nav-link dropdown-toggle collapse navbar-collapse" data-toggle="dropdown"
+            style="width: 45px;height: 45px; border-radius: 100%;" th:src="@{'/imagenes/'+${client.image}}" alt="">
+
+        <div class="dropdown-menu dropdown-menu dropdown-menu-right mr-5">
+            <a class="dropdown-item" th:href="@{/cuenta/perfil}"> <i class="fa-solid fa-user-large"></i>
+                Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" th:href="@{/cuenta/cerrar}"> <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Salir</a>
+        </div>
+    </ul>
+</div>

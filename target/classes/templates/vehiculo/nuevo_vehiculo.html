@@ -1,0 +1,37 @@
+<div th:include="page/header"></div>
+
+
+<div class="container">
+
+       <h1>Administrador de Vehiculos</h1>
+       <hr>
+       <h2>Guardar Vehiculo</h2>
+
+       <form action="#" th:action="@{/citas/guardarVehiculo}" th:object="${vehiculo}"
+              , method="POST">
+
+              <input type="text" th:field="*{tipo}"
+                     placeholder="Tipo de Vehiculo" class="form-control mb-4
+                     col-4">
+
+              <input type="text" th:field="*{placa}"
+                     placeholder="Placa" class="form-control mb-4 col-4">
+
+              <input type="text" th:field="*{marca}"
+                     placeholder="Marca" class="form-control mb-4 col-4">
+
+              <input type="text" th:field="*{modelo}"
+                     placeholder="Modelo" class="form-control mb-4 col-4">
+              <input type="text" th:field="*{descripcion}"
+                     placeholder="Descripcion" class="form-control mb-4 col-4">
+              <input type="text" th:field="*{usuario_id}"
+                     placeholder="Id del Usuario" class="form-control mb-4
+                     col-4">
+
+              <button type="submit" class="btn btn-info col-2">Guardar Vehiculo</button>
+       </form>
+
+</div>
+
+
+<div th:include="page/footer"></div>

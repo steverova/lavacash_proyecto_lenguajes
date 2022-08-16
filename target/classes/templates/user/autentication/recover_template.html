@@ -1,0 +1,21 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar"></div>
+
+<style>
+    .container {
+        max-width: 700px;
+    }
+</style>
+
+<link rel="stylesheet" href="../css/background.css">
+
+<script src="../js/vistas/validationForm.js"></script>
+<script src="../js/vistas/password_recover.js"></script>
+<script src="../js/vistas/code_validation.js"></script>
+<script src="../js/vistas/email_Validation.js"></script>
+
+
+<div id="sendmail"  style="display: block;" th:include="user/autentication/sendmail"></div>
+<div id="codeverify"   th:include="user/autentication/codeverify" style="display: none;"></div>
+
+<div th:include="page/footerv2"></div>

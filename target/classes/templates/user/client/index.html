@@ -1,0 +1,58 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar_client"></div>
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/background.css">
+</head>
+
+<style>
+    .fapackcolor {
+        color: #2f46ff;
+    }
+</style>
+
+<body>
+
+
+
+    <div class="container mt-5">
+        <div class="row text-center">
+
+            <div class="col-xl-4 col-sm-6 mb-5">
+                <a th:href="@{/citas/citas/agregarCita}">
+                    <div class="bg-white rounded shadow-sm py-5 px-4">
+                        <i class="fapackcolor fa-solid fa-calendar-plus fa-5x"></i>
+                        <h5 class="mt-5">AGENDAR CITA</h5>
+                    </div>
+                </a>
+            </div><!-- End -->
+
+            <div class="col-xl-4 col-sm-6 mb-5">
+                <a th:href="@{/citas/citas}">
+                    <div class="bg-white rounded shadow-sm py-5 px-4">
+                        <i class="fapackcolor fa-solid fa-calendar-day fa-5x"></i>
+                        <h5 class="mt-5">CITAS AGENDADAS</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-4 col-sm-6 mb-5">
+                <a th:href="@{/citas/agregarVehiculoForm}">
+                    <div class=" bg-white rounded shadow-sm py-5 px-4">
+                        <i class="fapackcolor fa-solid fa-car fa-5x"></i>
+                        <h5 class="mt-5">FLOTILLA</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row mx-auto justify-content-center">
+            <a name="" id="" class="btn btn-primary" th:href="@{/pagina/comentarios}" role="button">Seccion de Comentarios </a>
+        </div>
+    </div>
+

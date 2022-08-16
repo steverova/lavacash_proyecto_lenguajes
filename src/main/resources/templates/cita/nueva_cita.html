@@ -1,0 +1,46 @@
+<div th:include="page/header"></div>
+
+
+<div class="container">
+    
+    <h1>Administrador de Citas</h1>
+    <hr>
+    <h2>Guardar Cita</h2>
+    
+    <form action="#" th:action="@{/citas/guardarCita}" th:object ="${cita}", method="POST">
+        
+        <label>Fecha de la Cita</label>
+        <input type="date" th:field ="*{fecha}"
+                class="form-control mb-4 col-4">
+        
+        <label>Hora de la Cita</label>
+        <input type="text" th:field ="*{hora}"
+                class="form-control mb-4 col-4">
+        
+        <label>Detalles</label>
+        <input type="text" th:field ="*{detalle}"
+               placeholder="Detalles" class="form-control mb-4 col-4">
+        <div class="row">
+            <div class="col-md-2">
+                <select class="form-control" id="listaVehiculos">
+                    <option th:each="lv:${listaVehiculos}" th:value="${lv.id}" th:text="${lv.placa}" th:field="*{vehiculo_id}"></option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-control" id="listaServicios">
+                    <option th:each="ls:${listaServicios}" th:value="${ls.id}" th:text="${ls.nombre}" th:field="*{servicio_id}"></option>
+                </select>
+            </div>
+        </div>
+        
+        <div>
+            <hr>
+            <button type="submit" class="btn btn-info col-2">Guardar Cita</button>
+        </div>
+        
+    </form>
+    
+</div>
+
+        
+<div th:include="page/footer"></div>

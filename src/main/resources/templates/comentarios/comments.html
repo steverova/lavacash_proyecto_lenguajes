@@ -1,0 +1,162 @@
+<div th:include="page/header"></div>
+
+<div th:if="${client} != null">
+    <div th:include="page/navbar_client"></div>
+</div>
+
+<div th:unless="${client} != null">
+    <div th:include="page/navbar"></div>
+
+    <div class="alert alert-info text-center" role="alert">
+        Para agregar un comentario debes de estar <a href="#" class="alert-link">Registrado</a>
+    </div>
+</div>
+
+<link rel="stylesheet" href="../css/background02.css">
+
+<script src="../js/comentario/comentarios.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: rgb(116, 112, 112);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 100px;
+    }
+
+    #myBtn:hover {
+        background-color: #555;
+    }
+</style>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-10 col-md-10 col-lg-8 ">
+
+            <div th:if="${client} != null">
+                <div th:include="comentarios/newComment_card"></div>
+            </div>
+
+            <div id="comentarios">
+                <!-- aca se renderizan los comentarios nuevos o paginas  -->
+
+            </div>
+
+            <div class="card-body">
+                <button type="button" name="btnloadcomments" id="btnloadcomments"
+                    class="btn btn-primary btn-lg btn-block">Cargar mas comentarios...</button>
+            </div>
+
+            <div style="display: none;" id="alertComment" class="alert alert-warning alert-dismissible fade show">
+                <strong>No hay mas comentarios para mostrar</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="false">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light p-3 border-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="text-center">
+                    <h4>Desarrolladores</h4>
+                    <div><i class="fa-solid fa-user"></i> Mairon Jiménez</div>
+                    <div><i class="fa-solid fa-user"></i> Fabricio Quesada</div>
+                    <div><i class="fa-solid fa-user"></i> Steven Rojas</div>
+                    <div><i class="fa-solid fa-user"></i> Joan Zuñiga</div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="text-center">
+                    <h4>Institución</h4>
+                    <div>Universidad de Costa Rica</div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="text-center">
+                    <h4>Curso</h4>
+                    <div>IF-4101</div>
+                    <div>Lenguajes para Aplicaciones Comerciales</div>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row col-12">
+                <div class="mx-auto mt-3">
+                    Copyright © <b>LAVACA$H</b> 2022. Todos los derechos reservados
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <script>
+        var open = false;
+
+        $("#showaddComments").click(function () {
+            open = !open;
+
+            if (open) {
+                $("#addComent").css("display", "block");
+                $(this).find($(".fa-solid")).removeClass('fa-angle-down').addClass('fa-angle-up');
+
+            } else {
+                $("#addComent").css("display", "none");
+                $(this).find($(".fa-solid")).removeClass('fa-angle-up').addClass('fa-angle-down');
+            }
+        });
+    </script>
+
+
+
+    </html>

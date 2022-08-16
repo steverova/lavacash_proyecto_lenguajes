@@ -1,0 +1,34 @@
+<div th:include="page/header"></div>
+        
+        
+        <div class="container my-2">
+            
+            <h1>Sistema de citas</h1>
+            
+            <a th:href = "@{/citas/citas/agregarCita}" class="btn btn-primary">Agregar Nueva Cita</a>
+            <table border="1" class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>Fecha de la Cita</th>
+                        <th>Hora</th>
+                        <th>Detalle</th>
+                        <th>Id del servicio</th>
+                        <th>Id del Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="citas : ${listaCitas}">
+                        <td th:text="${citas.fecha}"></td>
+                        <td th:text="${citas.hora}"></td>
+                        <td th:text="${citas.detalle}"></td>
+                        <td th:text="${citas.servicio.id}"></td>
+                        <td th:text="${citas.vehiculo.id"></td>
+                        <td> <a href="@{/citas/citas/actualizarCita{id}(id=${citas.id})}" class="btn btn-primary">Actualizar</a>
+                             <a href="@{/citas/citas/borrarCita/{id}(id=${citas.id})}" class="btn btn-danger">Borrar</a>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+<div th:include="page/footer"></div>

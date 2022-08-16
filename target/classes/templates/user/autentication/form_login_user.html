@@ -1,0 +1,72 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar"></div>
+
+
+<link rel="stylesheet" href="../css/background.css">
+
+<script src="../js/vistas/email_validation_register.js"></script>
+
+<div class="container-fluid mt-5 ">
+    <div class="row justify-content-center">
+        <div class="card m-5 col-10 col-sm-6 col-md-6 col-lg-4 ">
+            <h5 class="card-header">Inicie Sesión</h5>
+            <div class="card-body">
+                <form th:action="@{/cuenta/ingresar}" th:object="${user}" method="post">
+
+                    <div class="form-group">
+                        <label for="">Correo</label>
+                        <input type="email" required class="form-control" th:field="*{correo}" aria-describedby=""
+                            placeholder="Ingrese correo electr&oacute;nico">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Contraseña</label>
+                        <input type="password" id="password" required name="password" autocomplete="off"
+                            class="form-control" th:field="*{contrasena}" placeholder="Ingrese la contraseña">
+                    </div>
+
+                    <div class="">
+                        <input type="checkbox" onclick="myFunctionLogin()">
+                        <span>Mostrar Contraseña</span>
+                    </div>
+
+                    <div id="messageDanger" class="mt-3">
+
+                        <h6>
+                            <p class="text-danger" th:text="${mensaje}"></p>
+                        </h6>
+
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </form>
+                <div>
+                    <p>No esta registrado? <a th:href="@{/cuenta/registrar}">Cree una cuenta!</a></p>
+                </div>
+
+                <div>
+                    <small>
+                        <p><a th:href="@{/cuenta/recuperar}">¿Olvidaste tu contraseña?</a></p>
+                    </small>
+
+                </div>
+            </div>
+            <hr>
+            <div class="container ">
+                <div class="row">
+                    <div class="col text-center">
+                        <a class="btn btn-default bg-primary text-white" th:href="@{/pagina/comentarios}">Opiniones
+                            de nuestros
+                            clientes</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
+
+<div th:include="page/footerv2"></div>

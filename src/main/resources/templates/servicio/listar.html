@@ -1,0 +1,71 @@
+<head th:include="page/header"></head>
+<div th:include="page/navbar"></div>
+
+<!-- MODAL INICIA -->
+<div id="modal_detalles" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detalles del Servicio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="titulo_modal_detalle"></p>
+                <table class="table table-sm" 
+                       id="tabla_modal_detalle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL FINALIZA -->
+
+<div class="mx-auto p-3">
+   <h1>Lista de Servicios</h1> 
+</div>
+<div class="p-3">
+    <button type="button" onclick="redireccionar('../servicio/crear')" 
+            class="btn btn-primary">Crear Servicio</button>
+</div>
+<div class="mx-auto container border border-dark rounded p-3">
+
+    <!-- TABLA INICIA -->
+    <table class="table" 
+           id="tableBody">
+        <thead>
+            <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- TABLA FINALIZA -->
+
+
+</div>
+
+<!-- SCRIPTS NECESARIOS PARA USAR SWEET ALERT -->
+<script type="text/javascript" th:src="@{//cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+<script type="text/javascript" th:src="@{/js/sweet_alert/alertas.js}"></script>
+<!-- SCRIPTS NECESARIOS PARA USAR SWEET ALERT -->
+<script type="text/javascript" th:src="@{/js/servicio/servicio_listar.js}"></script>
+
+<footer th:include="page/footer"></footer>

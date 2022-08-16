@@ -1,0 +1,72 @@
+<style>
+    @media only screen and (min-width: 766px) {
+        #navbar-items-links {
+            display: none;
+
+        }
+    }
+
+    @media only screen and (max-width: 766px) {
+        #navbar-icons-links {
+            display: none;
+
+        }
+    }
+</style>
+
+
+<script src="https://kit.fontawesome.com/0f02ee1723.js" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+
+    <a class="navbar-brand" th:href="@{/}"><i class="fa-solid fa-house"></i> LavaCa$h</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+        <div id="navbar-items-links">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active mt-3">
+                    <img class="avatar rounded-circle d-inline"
+                    style="width: 40px;height: 40px;" th:src="@{'/imagenes/'+${client.image}}" alt="">
+                    <a class="nav-link d-inline" th:href="@{/cuenta/perfil}"> Perfil<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/cuenta/cliente}"><i class="fa-solid fa-house-user"></i> Inicio</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/cuenta/cliente}"><i class="fa-solid fa-calendar-plus"></i> Agendar cita</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/cuenta/cerrar}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Salir</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+
+        <div th:include="page/navigation_client"></div>
+
+    </div>
+
+    <!-- div -->
+
+
+
+</nav>
+
+<body>

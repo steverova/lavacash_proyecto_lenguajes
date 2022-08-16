@@ -1,0 +1,49 @@
+<head th:include="page/header"></head>
+<div th:include="page/navbar"></div>
+
+<div class="mx-auto p-3">
+    <h1>Reporte de citas</h1>
+</div>
+<div class="mx-auto container border border-dark rounded p-3">
+    
+    <!-- TABLA INICIA -->
+    <table id="tabla_reporte">
+        <thead>
+            <tr>
+                <th>Fecha de Cita</th>
+                <th>Hora de Cita</th>
+                <th>Tipo de Vehiculo</th>
+                <th>Placa</th>
+                <th>Usuario</th>
+                <th>Telefono</th>
+                <th>Tipo de Servicio</th>
+                <th>Nombre del Servicio</th>
+                <th>Precio</th>
+                <th>Duración</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- TABLA FINALIZA -->
+
+</div>
+
+
+
+<!-- SCRIPTS NECESARIOS PARA USAR SWEET ALERT -->
+<script type="text/javascript" th:src="@{//cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+<script type="text/javascript" th:src="@{/js/sweet_alert/alertas.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/reporte/reporte_listar.js}"></script>
+
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.js"></script>
+
+
+
+<footer th:include="page/footer"></footer>

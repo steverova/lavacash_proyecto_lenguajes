@@ -1,0 +1,27 @@
+<div th:each="comentario: ${comentarios}">
+  <div class="mt-1">
+    <ul class=" card list list-inline bg-light">
+      <li class=" card-body d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+          <div class="">
+            <div class="d-flex flex-row align-items-center">
+              <div class="d-flex flex-column mr-2">
+                <img class="d-inline rounded-circle bg-danger" th:src="@{'/imagenes/'+${comentario.image}}" width="40"
+                  height="40" />
+                  
+              </div>
+              <h6 class="d-inline my-auto text-white bg-primary p-2 rounded-pill"
+                th:text="${#strings.substring(comentario.nombre,0,1) +'. '+ comentario.apellido}"></h6>
+              </h6>
+                
+            </div>
+            <hr>
+
+            <h5 th:text="${#strings.arraySplit(comentario.comentario,';')[0]}" class="card-title "></h5>
+            <small  th:text="${#strings.arraySplit(comentario.comentario,';')[1]}" class="card-text"></small>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

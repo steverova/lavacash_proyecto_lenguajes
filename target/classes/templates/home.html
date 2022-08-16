@@ -1,0 +1,72 @@
+<div th:include="page/header"></div>
+<div th:include="page/navbar"></div>
+
+<link rel="stylesheet" href="../css/background.css">
+
+<body>
+
+    <div>
+        <section class="py-5">
+            <h1 class="text-center text-uppercase mt-4 encabezado">
+                <span class="d-block">LAVACA$H</span>
+            </h1>
+
+            <p class="text-center text-lowercase mt-4">Ofrecemos servicios
+                de</p>
+        </section>
+
+
+
+        <div class="">
+            <div class="card container-fluid">
+                <div class="card-body">
+                    <div class="row">
+                        <div th:each="servicio: ${servicios}">
+                            <div class="col-md-4 mb-5">
+                                <div class="card border-primary" style="width:
+                                    18rem;">
+                                    <div class="card-body">
+                                        <div>
+                                            <img src="https://imgur.com/sM7wFqI.jpg" class="img-fluid" alt="...">
+                                        </div>
+                                        <hr>
+                                        <h5>
+                                            <span th:text="${servicio.nombre}"></span>
+                                        </h5>
+                                        <textarea readonly style="border: none;
+                                        outline: none;  resize: none;" th:text="${servicio.descripcion}"
+                                            autocomplete="off" type="text"> </textarea>
+                                        <!-- <p th:text="${servicio.descripcion}" class="card-text"></p> -->
+                                        <p colspan="3" th:text="'Precio:
+                                            ₡'+${servicio.precio}" class="card-text"></p>
+                                        <p th:text="'Tiempo estimado:
+                                            '+${servicio.tiempo}" class="card-text"></p>
+                                        <!-- <a href="#" class="btn btn-primary">Go
+                                    somewhere</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card container-fluid mt-5" height="600px">
+            <div class="card-body">
+                                    <div class="row">
+                                        <img th:src="@{'/imagenes/83904741_119341702968540_173286794544764950_n.jpg'}" style="max-width: 20%;" />
+                                    </div>
+                This is some text within a card body.
+            </div>
+        </div>
+
+        <div class="card container-fluid mt-5">
+            <div class="card-body">
+                This is some text within a card body.
+            </div>
+        </div>
+
+        
+    </div>
+</body>

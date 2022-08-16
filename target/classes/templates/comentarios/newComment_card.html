@@ -1,0 +1,50 @@
+<div class="card mt-3">
+    <div class="card-body">
+        <div style="display: none;" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Comunicado!</strong> Por normativas de la empresa, todos los comentarios estan sujetos a moderación. 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="false">&times;</span>
+            </button>
+          </div>
+        <button type="button" id="showaddComments" class="btn btn-secondary btn btn-block">
+            AgregarComentario <i class="fa-solid fa-angle-down"></i></button>
+        <div id="addComent" style="display: none;">
+            <form th:action="@{/pagina/comentarios}" method="post">
+                <div class="form-group mt-3">
+                    <div class="form-group">
+                        <input required autocomplete="off" type="text" class="form-control" name="asunto"
+                            id="asunto" aria-describedby="" placeholder="Asunto">
+                    </div>
+                    <div class="mt-3">
+                        <textarea required autocomplete="off" id="mytextarea" name="mytextarea"
+                            class="form-control" placeholder="Calificanos" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <small id="characters" for="">Agrega un comentario</small>
+                <button id="new_comment" class="btn btn-info float-right" type="submit">
+                    Comentar <i class="fa-solid fa-message"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="card mt-3 mb-3">
+    <div class="form-group mt-3 col-10 col-sm-10 col-md-10 mx-auto">
+        <select id="inputState" class="form-control" placeholder="Ordenar por: ">
+            <option >Ordenar por...</option>
+            <option>Nuevos</option>
+            <option>Antiguos</option>
+        </select>
+    </div>
+</div> -->
+
+<script>
+
+$( "#addComent" ).click(function() {
+    $('.alert').alert();
+    $('.alert').show();
+    
+});
+    
+</script>

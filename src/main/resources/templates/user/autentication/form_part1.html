@@ -1,0 +1,42 @@
+<div class="card">
+    <div id="card" class="card_img">
+        <img required id="previa" th:src="@{../images/person-default.png}" alt="user-image" >
+    </div>
+</div>
+</br>
+
+<div class="form-group " style="display:none;">
+    <div class="custom-file">
+        <input type="file" name="file" id="file" class="custom-file-input"
+            aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Elegir Archivo</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="">Nombre</label>
+    <input autocomplete="off" type="text" required class="form-control" th:field="*{nombre}"
+        aria-describedby="emailHelp" placeholder="Ingrese su nombre">
+</div>
+
+<div class="form-group">
+    <label for="">Apellido</label>
+    <input autocomplete="off" type="text" required class="form-control" th:field="*{apellido}"
+        placeholder="Ingrese apellido">
+</div>
+
+<div class="form-group">
+    <label for="">Correo</label>
+    <input id="email" autocomplete="off" type="email" required class="form-control" th:field="*{correo}"
+        placeholder="ejemplo@domain.com">
+        <div id="" class="mt-3">
+            <h6>
+                <p id="messageDanger"></p>
+            </h6>
+        </div>
+</div>
+
+<div class="mt-5">
+    <button disabled id="sendverify" name="btntoform"  class="btn btn-primary"> Crear
+        Cuenta <i class="fa-solid fa-angle-right"></i></button>
+  </div>
